@@ -32,10 +32,10 @@ public class DBWorker {
             System.out.println(setId.getString("pictures")+ "-->");
         }
 
-        worker.dispose();
+        worker.close();
     }*/
 
-    public void dispose(){
+    public void close(){
         try {
             if(statement != null)
             statement.close();
@@ -45,7 +45,5 @@ public class DBWorker {
             e.printStackTrace();
         }
     }
-
-
 
 }

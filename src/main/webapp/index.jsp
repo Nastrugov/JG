@@ -6,7 +6,15 @@
 	<link media="screen" rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
+    <p> Test %= ....</p>
     <I><%= request.getAttribute("title") %></I>
     <p>Привет!</p>
+    <hr>
+    <p>Test %</p>
+
+    <hr>
+    <p> Test %! </p>
+
+    <hr>
 </body>
 </html>
