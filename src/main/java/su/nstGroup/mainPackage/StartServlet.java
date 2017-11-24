@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/startShop")
 public class StartServlet extends HttpServlet {
+    private Products products;
 
     public StartServlet(){
         super();
@@ -19,22 +19,17 @@ public class StartServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
-
-        request.setAttribute("title", getTag());
+        products = new Products();
+        System.out.println(products);
+        request.setAttribute("cards", products);
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        System.out.println(products);
     }
 
-    private ArrayList<String> getTag(){
-        ArrayList<String> strs = new ArrayList<>();
-        strs.add("Polya");
-        strs.add("Kolya");
-        return strs;
 
-    }
 
 }

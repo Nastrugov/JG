@@ -6,15 +6,13 @@
 	<link media="screen" rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-    <p> Test %= ....</p>
-    <I><%= request.getAttribute("title") %></I>
-    <p>Привет!</p>
-    <hr>
-    <p>Test %</p>
-
-    <hr>
-    <p> Test %! </p>
-
-    <hr>
+    <header>@Galina_KlubokNitok</header>
+    <main>
+        <%= request.getAttribute("cards") %>
+    </main>
+    <footer>
+    	<div id="contacts">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error ratione sapiente, cumque dolorem,                            maiores ipsam officiis in quisquam cupiditate recusandae, numquam ipsum sequi! Animi officia                                 consequuntur perspiciatis repellendus voluptatibus provident.
+    	</div>
+    </footer>
 </body>
 </html>

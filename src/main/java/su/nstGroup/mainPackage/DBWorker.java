@@ -2,7 +2,7 @@ package su.nstGroup.mainPackage;
 
 import java.sql.*;
 
-public class DBWorker {
+class DBWorker {
 
     private final String login = "root";
     private final String password = "root";
@@ -10,7 +10,7 @@ public class DBWorker {
     private Connection connection = null;
     private Statement statement = null;
 
-    public DBWorker(){
+    DBWorker(){
         try {
             connection = DriverManager.getConnection(server, login, password);
             statement = connection.createStatement();
@@ -18,23 +18,15 @@ public class DBWorker {
             e.printStackTrace();
         }
     }
-
-/*    public static void main(String[] args) throws Exception{
-        DBWorker worker = new DBWorker();
-        ResultSet setId = worker.statement.executeQuery("select * from knitted_products");
-        while(setId.next()){
-            System.out.print("<--" + setId.getInt("id") + "||");
-            System.out.print(setId.getString("name")+ "||");
-            System.out.print(setId.getString("material")+ "||");
-            System.out.print(setId.getString("size")+ "||");
-            System.out.print(setId.getString("color")+ "||");
-            System.out.print(setId.getFloat("cost")+ "||");
-            System.out.println(setId.getString("pictures")+ "-->");
+    ResultSet getResultSet(String query){
+        ResultSet resultSet = null;
+        try {
+            resultSet = statement.executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        worker.close();
-    }*/
-
+        return resultSet;
+    }
     public void close(){
         try {
             if(statement != null)

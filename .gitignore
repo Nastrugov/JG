@@ -1,3 +1,5 @@
 #Ignore comments
 
 comment/
+target/
+.idea/
