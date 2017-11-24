@@ -1,7 +1,9 @@
 package su.nstGroup.mainPackage;
 
 import java.sql.*;
-
+/*
+* Class for working with the database
+*/
 class DBWorker {
 
     private final String login = "root";
@@ -9,7 +11,9 @@ class DBWorker {
     private final String server = "jdbc:mysql://localhost:3306/klubok?useSSL=true";
     private Connection connection = null;
     private Statement statement = null;
-
+/*
+* Constructor. Get Connection and Statement
+*/
     DBWorker(){
         try {
             connection = DriverManager.getConnection(server, login, password);
@@ -18,6 +22,9 @@ class DBWorker {
             e.printStackTrace();
         }
     }
+    /*
+    * Get the ResultSet and give it to the processing
+    */
     ResultSet getResultSet(String query){
         ResultSet resultSet = null;
         try {
@@ -27,6 +34,10 @@ class DBWorker {
         }
         return resultSet;
     }
+
+    /*
+    Close Connection and statement
+    */
     public void close(){
         try {
             if(statement != null)

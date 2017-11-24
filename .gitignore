@@ -1,5 +1,5 @@
 #Ignore comments
 
-comment/
-target/
-.idea/
+/comment/*
+/target/*
+/.idea/*

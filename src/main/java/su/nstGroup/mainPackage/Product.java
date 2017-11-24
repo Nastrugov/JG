@@ -20,7 +20,7 @@ class Product {
         this.pictures = pictures;
         this.presence = presence;
     }
-
+/* Getters */
     public int getId() {
         return id;
     }
@@ -48,29 +48,33 @@ class Product {
     public String[] getPictures() {
         return pictures;
     }
-
     public boolean isPresence() {
         return presence;
     }
-
+/*
+* Converts a Boolean value to a string with the desired content
+* @param boolean
+*/
     private String getPresence(boolean presence){
         if(presence) return "В наличии.";
         else return "Под заказ.";
     }
-
+/*
+*Returns a string in the form HTML code options
+*/
     @Override
     public String toString() {
         String htmlCode = String.format("<div class=\"card\">\n" +
-                "\t\t\t<img tabindex=\"0 \"src=\"pictures/%s\" alt=\"Фото изделия\">\n" +
-                "\t\t\t<p>Номер в каталоге:<span> %d</span></p>\n" +
-                "\t\t\t<p>Наименование:<span> %s</span></p>\n" +
-                "\t\t\t<p>Материал:<span> %s</span></p>\n" +
-                "\t\t\t<p>Размеры:<span> %s</span></p>\n" +
-                "\t\t\t<p>Расцветки:<span> %s</span></p>\n" +
-                "\t\t\t<p>Стоимость от:<span> %.2f</span></p>\n" +
-                "\t\t\t<p><span> %s</span></p>\n" +
-                "\t\t\t<p class=\"lastp\"><a href=\"#\">Подробнее...</a></p>\n" +
-                "\t\t</div>", getPictures()[0], getId(), getName(), getMaterial(), getSize(), getColors(), getPrice(),  getPresence(isPresence()));
+                "\t\t\t<img tabindex=\"0 \"src=\"pictures/%1s\" alt=\"Фото изделия\">\n" +
+                "\t\t\t<p>Номер в каталоге:<span> %2d</span></p>\n" +
+                "\t\t\t<p>Наименование:<span> %3s</span></p>\n" +
+                "\t\t\t<p>Материал:<span> %4s</span></p>\n" +
+                "\t\t\t<p>Размеры:<span> %5s</span></p>\n" +
+                "\t\t\t<p>Расцветки:<span> %6s</span></p>\n" +
+                "\t\t\t<p>Стоимость от:<span> %7.2f</span></p>\n" +
+                "\t\t\t<p><span> %8s</span></p>\n" +
+                "\t\t\t<p class=\"lastp\"><a href=\"/productServlet?from=%d\">Подробнее...</a></p>\n" +
+                "\t\t</div>", getPictures()[0], getId(), getName(), getMaterial(), getSize(), getColors(), getPrice(), getPresence(isPresence()), getId());
 
     if(htmlCode != null) return htmlCode;
     else return "div class=\"card\">Товара не существует.</div>";

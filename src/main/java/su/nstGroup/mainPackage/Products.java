@@ -18,6 +18,7 @@ class Products {
         this.products = new ArrayList<>();
         createProductFromDB();
     }
+
     /*
     * Adds a product to the repository
     *@param - Product
@@ -25,6 +26,7 @@ class Products {
     private void addProduct(Product product) {
         products.add(product);
     }
+
     /*
     * Creates a product from the database and adds it to the repository
     */
@@ -48,6 +50,7 @@ class Products {
             dbWorker.close();
         }
     }
+
     /*
     *  Processes the string into an array of strings,
     *  each string is the name of the image file
@@ -60,16 +63,26 @@ class Products {
         }
         return trimPics;
     }
+
     /*
     *  Converts a string to a boolean value
     */
     private boolean isPresence(String presence){
        return presence.equals("1");
     }
+/*
+* Gets the instance Product by ID
+* */
+    Product getProductById(int id){
+        for(Product product : products){
+            if(product.getId() == id) return product;
+        }
+        return null;
+    }
 
     /*
     * Represents the storage in the form of HTML code
-    * */
+    */
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder("");
