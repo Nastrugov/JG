@@ -62,10 +62,9 @@ class Product {
 /*
 *Returns a string in the form HTML code options
 */
-    @Override
-    public String toString() {
+    public String toHTMLString() {
         String htmlCode = String.format("<div class=\"card\">\n" +
-                "\t\t\t<img tabindex=\"0 \"src=\"pictures/%1s\" alt=\"Фото изделия\">\n" +
+                "\t\t\t<img tabindex=\"0\" \"src=\"pictures/%1s\" alt=\"Фото изделия\">\n" +
                 "\t\t\t<p>Номер в каталоге:<span> %2d</span></p>\n" +
                 "\t\t\t<p>Наименование:<span> %3s</span></p>\n" +
                 "\t\t\t<p>Материал:<span> %4s</span></p>\n" +

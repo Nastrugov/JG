@@ -20,8 +20,8 @@ public class StartServlet extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         products = new Products();
-        System.out.println(products);
-        request.setAttribute("cards", products);
+        //System.out.println(products);
+        request.setAttribute("cards", products.toHTMLString());
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 

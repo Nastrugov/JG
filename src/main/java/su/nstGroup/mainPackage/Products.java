@@ -7,7 +7,7 @@ import java.util.ArrayList;
 class Products {
 
     private DBWorker dbWorker;
-    private ArrayList<Product> products;
+    private ArrayList<Product> productList;
 
     /*
     * Constructor starts a connection to the database
@@ -15,7 +15,7 @@ class Products {
     * */
     Products() {
         this.dbWorker = new DBWorker();
-        this.products = new ArrayList<>();
+        this.productList = new ArrayList<>();
         createProductFromDB();
     }
 
@@ -24,7 +24,7 @@ class Products {
     *@param - Product
     */
     private void addProduct(Product product) {
-        products.add(product);
+        productList.add(product);
     }
 
     /*
@@ -74,7 +74,7 @@ class Products {
 * Gets the instance Product by ID
 * */
     Product getProductById(int id){
-        for(Product product : products){
+        for(Product product : productList){
             if(product.getId() == id) return product;
         }
         return null;
@@ -83,11 +83,10 @@ class Products {
     /*
     * Represents the storage in the form of HTML code
     */
-    @Override
-    public String toString(){
+    public String toHTMLString(){
         StringBuilder sb = new StringBuilder("");
-        for(Product product : products){
-            sb.append(product);
+        for(Product product : productList){
+            sb.append(product.toHTMLString());
             sb.append("\n");
         }
         return sb.toString();
